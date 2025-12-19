@@ -1,73 +1,129 @@
-# React + TypeScript + Vite
+# GitHub Profile Summary
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, interactive web app that displays GitHub user profiles with detailed analytics and insights.
 
-Currently, two official plugins are available:
+## 🌟 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Profile Lookup**: Search for any GitHub user and view their profile information
+- **Repository Analytics**:
+  - View all public repositories
+  - Language distribution pie chart
+  - Stars per language breakdown
+  - Largest repositories by size
+  - Top repositories by stars
+- **User README**: Displays the profile README from users who have one
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Real-time Data**: Fetches live data from the GitHub API
+
+## 🚀 Live Demo
+
+Visit the live site: [GitHub Profile Summary](https://beelumb.github.io/github-profile-summary/)
+
+## 🛠️ Tech Stack
+
+- **React 19** - UI framework
+- **React Router 7** - Client-side routing
+- **TypeScript** - Type safety
+- **Vite** - Build tool
+- **Tailwind CSS** - Styling
+- **Recharts** - Data visualization
+- **React Query** - Data fetching and caching
+- **Axios** - HTTP client
+- **React Markdown** - Markdown rendering
+
+## 📦 Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/beelumb/github-profile-summary.git
+cd github-profile-summary
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser
+
+## 📝 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+
+## 📂 Project Structure
+
+```
+src/
+├── components/       # Reusable React components
+│   ├── Divider.tsx
+│   ├── LanguagePie.tsx
+│   ├── RepoCard.tsx
+│   └── UserInfo.tsx
+├── hooks/           # Custom React hooks
+│   ├── useGitHubUser.ts
+│   ├── useGitHubRepos.ts
+│   ├── useGitHubContributions.ts
+│   └── useUserReadMe.ts
+├── pages/           # Page components
+│   ├── Home.tsx
+│   └── UserPage.tsx
+├── services/        # API services
+│   └── githubService.ts
+├── lib/             # Utilities
+│   └── utils.ts
+├── types/           # TypeScript types
+│   └── types.ts
+└── App.tsx          # Main App component
+```
+
+## 🔑 Environment Variables
+
+The app uses the public GitHub API. No authentication is required, but you can add:
+
+- `VITE_GITHUB_TOKEN` - (Optional) GitHub personal access token for higher rate limits
+
+## 🌐 API
+
+This project uses the public GitHub REST API:
+- User information: `/users/{username}`
+- Repositories: `/users/{username}/repos`
+- User README: `/repos/{username}/{username}/readme`
+
+Rate limits: 60 requests/hour (unauthenticated), 5,000 requests/hour (authenticated)
+
+## 🚀 Deployment
+
+The project is deployed to GitHub Pages using GitHub Actions. On every push to `main`:
+1. Dependencies are installed
+2. Project is built
+3. Built files are uploaded to GitHub Pages
+4. Deployment is published
+
+No additional configuration needed—just push to `main` and the CI/CD pipeline handles the rest!
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+- Report bugs
+- Suggest features
+- Submit pull requests
+
+## 👨‍💻 Author
+
+**Beelumb**  
+[GitHub Profile](https://github.com/beelumb)
 
 ## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
