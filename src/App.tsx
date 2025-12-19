@@ -8,16 +8,19 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <RootLayout />,
-      children: [
-        { index: true, element: <Home /> },
-        { path: "/user/:username", element: <UserPage /> },
-      ],
-    },
-  ]);
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <RootLayout />,
+        children: [
+          { index: true, element: <Home /> },
+          { path: "/user/:username", element: <UserPage /> },
+        ],
+      },
+    ],
+    { basename: "/github-profile-summary/" }
+  );
 
   return (
     <>
