@@ -38,7 +38,7 @@ export default function UserInfo({ userData }: { userData: GitHubUser }) {
   }, [chartData]); 
 
   return (
-    <div className="mt-8 flex justify-between">
+    <div className="mt-12 flex justify-between">
       <div className="flex ">
         <div className="flex ">
           <img
