@@ -51,12 +51,6 @@ npm run dev
 
 4. Open [http://localhost:5173](http://localhost:5173) in your browser
 
-## 📝 Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
-- `npm run lint` - Run ESLint
 
 ## 📂 Project Structure
 
@@ -107,8 +101,6 @@ The project is deployed to GitHub Pages using GitHub Actions. On every push to `
 3. Built files are uploaded to GitHub Pages
 4. Deployment is published
 
-No additional configuration needed—just push to `main` and the CI/CD pipeline handles the rest!
-
 ## 📄 License
 
 This project is open source and available under the MIT License.
@@ -125,5 +117,4 @@ Contributions are welcome! Feel free to:
 **Beelumb**  
 [GitHub Profile](https://github.com/beelumb)
 
-## React Compiler
 
